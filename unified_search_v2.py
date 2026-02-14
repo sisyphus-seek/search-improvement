@@ -11,14 +11,21 @@ import re
 from typing import List, Dict, Optional, Any
 
 # 模拟 web_fetch（实际应使用 OpenClaw 工具）
-def web_fetch(url: str, extractMode: str = "text", maxChars: int = 5000) -> str:
+def web_fetch(url: str, extractMode: str = "text", maxChars: int = 5000, headers: Dict = None) -> str:
     """
     模拟 web_fetch 函数
     实际使用时应该调用 OpenClaw 的 web_fetch 工具
     """
     import subprocess
+
+    cmd = ["curl", "-s", "-L", url]
+
+    if headers:
+        for key, value in headers.items():
+            cmd.extend(["-H", f"{key}: {value}"])
+
     result = subprocess.run(
-        ["curl", "-s", url],
+        cmd,
         capture_output=True,
         text=True,
         timeout=10
@@ -147,11 +154,17 @@ class RedditSearchSource(SearchSource):
     def __init__(self):
         super().__init__("Reddit")
 
+        # Reddit 需要特殊的 User-Agent
+        self.headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+            'Accept': 'application/json, text/plain, */*',
+        }
+
     def search(self, query: str, limit: int = 10) -> List[SearchResult]:
         try:
             encoded_query = urllib.parse.quote(query)
             url = f"https://www.reddit.com/search.json?q={encoded_query}&limit={limit}"
-            response = web_fetch(url, extractMode="text")
+            response = web_fetch(url, extractMode="text", headers=self.headers)
 
             data = json.loads(response)
             results = []
