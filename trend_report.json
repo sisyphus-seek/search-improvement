@@ -1,0 +1,25 @@
+{
+  "date": "2026-02-15",
+  "trends": {
+    "RAG": {
+      "query": "RAG retrieval",
+      "results": 3
+    },
+    "MCP": {
+      "query": "MCP Model Context Protocol",
+      "results": 3
+    },
+    "Agentic AI": {
+      "query": "Agentic AI framework",
+      "results": 3
+    },
+    "WebGPU": {
+      "query": "WebGPU browser",
+      "results": 3
+    },
+    "SLM": {
+      "query": "Small Language Models SLM",
+      "results": 3
+    }
+  }
+}
