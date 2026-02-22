@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Node.js
+node_modules/
+package-lock.json
+
+# 敏感信息（排除 requirements.txt）
+credentials/
+.env
+.env.local
+
+# 缓存
+.cache/
+.workspace/cache/
+*.cache
+search_results/
+
+# 日志和调试文件
+debug_*.html
+debug_*.json
+debug_*.py
+debug_*.mjs
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统
+.DS_Store
+Thumbs.db
+
+# 临时文件
+*.tmp
+*.bak
+*.orig
