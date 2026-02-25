@@ -4,8 +4,8 @@
 
 ### 1. 凭证读取
 已安全读取以下凭证（不会泄露）：
-- **Anspire API Key**: `sk-3QUA...` (完整 key 已保存)
-- **Brave API Key**: `BSAHF...` (完整 key 已保存)
+- **Anspire API Key**: 见 `credentials/anspire_api_key.txt`
+- **Brave API Key**: 见 `credentials/brave_api_key.txt`
 - **GitHub**: sisyphus-seek (Token 有效至 2026-03-10)
 
 ### 2. 项目能力掌握
