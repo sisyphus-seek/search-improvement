@@ -22,8 +22,8 @@ sys.path.insert(0, str(SRC_DIR))
 sys.path.insert(0, str(ENGINES_DIR))
 sys.path.insert(0, str(UTILS_DIR))
 
-# 自动加载凭证
-CREDENTIALS_DIR = Path(__file__).parent.parent / "credentials"
+# 自动加载凭证 - 统一使用 /workspace/credentials
+CREDENTIALS_DIR = Path("/workspace/credentials")
 
 def load_credentials():
     """从 credentials 目录加载 API Keys"""
